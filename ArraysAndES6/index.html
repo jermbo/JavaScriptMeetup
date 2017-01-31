@@ -3,49 +3,38 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Arrays and ES6</title>
-	<style>
-		.hl{
-			background: goldenrod;
-			text-transform: capitalize;
-		}
-	</style>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<style>
+		html,
+		body{
+			width: 100vw;
+			height: 100vh;
+		}
+		body{
+			margin: 0;
+			padding: 0;
+			background-image: url(images/bg-img.jpg);
+			background-size: cover;
+			position: relative;
+			color: white;
+		}
+		body:before{
+			content: '';
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,0.5);
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	</style>
 </head>
 <body>
 	<div class="container">
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label>Find Character by Name</label>
-			  <input type="text" class="search form-control" placeholder="Find by Character Name">
-			</div>
-			
-			<div class="names">
-				
-			</div>
-		</div>
-		<div class="col-xs-6">
-			<div class="form-group">
-				<label>Select Actor</label>
-				<select class="actorSelect form-control"></select>
-			</div>
-			<div class="actorInfo">
-				
-			</div>
-		</div>
+		<h1>Arrays and ES2015 <small>...and beyond..</small></h1>
+		<p>All of this is done in the console.. hit CMD + Alt + J or CTRL + Shift + J</p>
 	</div>
-
-	<div class="col-xs-12">
-		<ul class="nav">
-			<li><a href="#">Home</a></li>
-			<li><a href="#">About</a></li>
-			<li><a href="#">Contact</a></li>
-			<li><a href="#">Blog</a></li>
-			<li><a href="#">Gallery</a></li>
-		</ul>
-	</div>
-
-
 	<script src="main.js"></script>
 </body>
 </html>
