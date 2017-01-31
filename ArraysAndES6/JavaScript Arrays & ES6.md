@@ -22,7 +22,7 @@ Arrays are a wonderful data type with a lot of power behind them. First, it's im
 
 Before we go further, I want to set the context of what we are about to do. We will be manipulating arrays, so lets assume there is an array declared at the top of the script called `animaniacs` and it has some string values. 
 
-```javascript
+```JavaScript
 const animaniacs = ['Yakko', 'Wakko', 'Dot']
 ```
 
@@ -36,7 +36,7 @@ Simply put, they mutate the original array.
 
 Push adds one or more elements to the array and returns the new length of the array. [More Info](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push) Let's say our list of characters is incomplete and we want to add 2 more characters.
 
-```javascript
+```JavaScript
 animaniacs.push('Dr. Otto Scratchansniff', 'Hello Nurse');
 // ['Yakko', 'Wakko', 'Dot', 'Dr. Otto Scratchansniff', 'Hello Nurse']
 ```
@@ -47,10 +47,21 @@ Push accepts one or more values. You separate the values with commas. Each item 
 
 This method removes one element from the end of the array. [More Info](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop) In our example we now should have `['Yakko', 'Wakko', 'Dot', 'Dr. Otto Scratchansniff', 'Hello Nurse']` in our array. Let's say we want to remove Hello Nurse.
 
-```javascript
+```JavaScript
 animaniacs.pop();
 // ['Yakko', 'Wakko', 'Dot', 'Dr. Otto Scratchansniff']
 ```
+
+#### Shift
+
+This method removes one element from the end of the array.
+
+```JavaScript
+animaniacs.shift();
+// ['Wakko', 'Dot', 'Dr. Otto Scratchansniff']
+```
+
+
 
 #### Splice
 
@@ -58,9 +69,9 @@ Splice changes the array content by adding new elements in a specific position o
 
 For example, we want to get rid of "Bender" and "Professor". We need to use the splice method and pass in 2 arguments. First is what Index to start with, and the second is how many we want to remove.
 
-```javascript
-characters.splice(2, 2);
-//['Yakko', 'Wakko']
+```JavaScript
+animaniacs.splice(2, 2);
+//['Wakko', 'Dot']
 ```
 
 This is stating; "Start at the second index, and remove two values".
@@ -68,19 +79,19 @@ This is stating; "Start at the second index, and remove two values".
 On the flip side, let's add those characters back with another cast member.
 
 ```JavaScript
-characters.splice(2, 0, 'Dr. Otto Scratchansniff', 'Hello Nurse', 'Buttons');
-//['Yakko', 'Wakko', 'Dr. Otto Scratchansniff', 'Hello Nurse', 'Buttons']
+animaniacs.splice(2, 0, 'Dr. Otto Scratchansniff', 'Hello Nurse', 'Buttons');
+//['Wakko', 'Dot', 'Dr. Otto Scratchansniff', 'Hello Nurse', 'Buttons']
 ```
 
 This will result in the array being `['Yakko', 'Wakko', 'Dr. Otto Scratchansniff', 'Hello Nurse', 'Buttons']` The first parameter is the start index, then the second parameter is the delete count ( in this case we don't want to delete anything ), and the rest are the values we want added to the array. And Just like the push method, each item separated by the comma will be a value in the array.
 
-#### Shift
+#### Unshift
 
 To do the opposite and add items to the beginning of an array, you call `.shift()`
 
-```javascript
-animaniacs.push('Pinkey');
-// ['Pinkey', 'Yakko', 'Wakko', 'Dr. Otto Scratchansniff', 'Hello Nurse', 'Buttons'];
+```JavaScript
+animaniacs.shift('Pinkey');
+// ['Pinkey', 'Wakko', 'Dot', 'Dr. Otto Scratchansniff', 'Hello Nurse', 'Buttons'];
 ```
 
 
@@ -89,7 +100,7 @@ animaniacs.push('Pinkey');
 
 Let's take a look at sorting an array. I want to get the `animaniacs` array to be alphabetical. To do so we need to invoke the `.sort()` method and the call back function accepts 2 parameters. Like so : 
 
-```javascript
+```JavaScript
 var alphabetic = animaniacs.sort(function(a,b){
   if( a < b ){
     return -1;
@@ -104,7 +115,7 @@ Every time this loops it checks the current item with the next in line. If it is
 
 This is ok, but nothing about this is ES6. Let's start with the Fat Arrow and const variable type.
 
-```javascript
+```JavaScript
 const alphebetic = animaniacs.sort((a,b) => {
   if( a < b ){
     return -1;
@@ -113,12 +124,24 @@ const alphebetic = animaniacs.sort((a,b) => {
   }
 });
 console.log(alphebetic);
+const alphebetic = animaniacs.sort((a,b) => (a < b ) ? -1: 1);
+
 ```
 
 It's starting to look better. All our function is doing is returning a -1 or 1. We can shorten our function even more. 
 
-```javascript
+```JavaScript
 const alphebetic = animaniacs.sort((a,b) => (a < b ) ? -1: 1);
+// ['Buttons', 'Dot', 'Dr. Otto Scratchansniff', 'Hello Nurse', 'Pinkey', 'Wakko']
+```
+
+#### Randomize an array
+
+There is no randomize method of the array prototype, but you can use the sort method and get the same result.
+
+```JavaScript
+cost randomize = animaniacs.sort(() => .5 - Math.random() );
+// ['Dot', 'Hello Nurse', 'Dr. Otto Scratchansniff', 'Pinkey', 'Buttons', 'Wakko']
 ```
 
 
@@ -141,8 +164,8 @@ Array.from('JavaScript'); // // ["J", "a", "v", "a", "S", "c", "r", "i", "p", "t
 
 Returns the first Array element for which the callback returns true. If there is no such element it will return `undefined`. 
 
-```javascript
-console.log([4, -2, 5, -7, 4, 5, -8].find(x => x < 0));
+```JavaScript
+console.log([4, -11, 5, -7, 4, 5, -8].find(x => x < 0));
 // -2
 ```
 
@@ -150,7 +173,7 @@ console.log([4, -2, 5, -7, 4, 5, -8].find(x => x < 0));
 
 Similar to find, with the exception this will return the index where the first true item is found otherwise -1 will be returned back.
 
-```javascript
+```JavaScript
 console.log([4, 2, -5, -7, 4, 5, -8].findIndex(x => x < 0));
 // 2
 ```
