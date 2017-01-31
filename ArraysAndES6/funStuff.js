@@ -1,6 +1,6 @@
 const baseURL = 'http://www.anapioficeandfire.com/api/characters/?pageSize=50';
 
-const characters = []
+const characters = [];
 
 fetch(baseURL)
   .then(resp => resp.json())
@@ -13,14 +13,14 @@ fetch(baseURL)
     characters.push(...data);
     characters.forEach(char => {
     	if(char.name){
-    		names.innerHTML += `<p class='name col-xs-6'>${char.name}</p>`
+    		names.innerHTML += `<p class='name col-xs-3'>${char.name}</p>`
     	}
     });
   });
 
 function matchName(nameToMatch, chars) {
   return chars.filter(char => {
-    const regex = new RegExp(nameToMatch, 'gi')
+    const regex = new RegExp(nameToMatch, 'gi');
     return char.name.match(regex);
   });
 }
@@ -31,7 +31,7 @@ function displayMatches() {
     const regex = new RegExp(this.value, 'gi');
     const name = m.name.replace(regex, `<span class='hl'>${this.value}</span>`);
     if(m.name){
-    	return `<p class='name col-xs-6'>${name}</p>`
+    	return `<p class='name col-xs-3'>${name}</p>`;
     }
   }).join('');
   names.innerHTML = html;
@@ -81,6 +81,7 @@ var actors = [
 
 const select = document.querySelector('.actorSelect');
 const display = document.querySelector('.actorInfo');
+
 actors.forEach(actor => {
 	select.innerHTML += `<option value="${actor.name}">${actor.name}</option>`
 });
@@ -99,20 +100,23 @@ select.addEventListener('change', (e) => {
 	display.innerHTML = html;
 })
 
-///////
-
+//////////////////////////////////////////////////
+// Selecting DOM Elements return a NodeList
+// NodeList is like an array.. but not quite
 const navItems = document.querySelectorAll('.nav li a');
 console.log(navItems);
+// Array.from is a way of turning an array like item into an array.
 console.log(Array.from(navItems, item => item.textContent))
+// Another way of doing this is using the spread operator
+console.log([...navItems].map(item => item.textContent));
 
 
 
-/////
-
+/////////////
 const adjectives = [ 'gullible', 'waggish', 'chilly', 'observant', 'actually', 'ugly', 'detailed', 'quickest', 'energetic', 'unaccountable', 'unsightly', 'debonair', 'heavenly', 'spooky', 'flat', 'woozy', 'average', 'abandoned', 'purring', 'glorious' ];
 
-// bad
-// var alpah = adjectives.sort(function(a,b){
+// Bad - very verbose and could be cleaner
+// var alpha = adjectives.sort(function(a,b){
 //   if( a < b ){
 //     return -1;
 //   }else{
@@ -120,21 +124,16 @@ const adjectives = [ 'gullible', 'waggish', 'chilly', 'observant', 'actually', '
 //   }
 // });
 
-// ok
+// OK - using the fat arrows and terneray operators
+// But it could be cleaner
 // const alpha = adjectives.sort((a,b) => {
-//   if( a < b ){
-//     return -1;
-//   }else{
-//     return 1;
-//   }
+//   if( a < b ) ? return -1 : 1
 // });
 
-// best!
+// BEST! - Using the implicit return makes this a nice easy to read one liner
 const alpha = adjectives.sort((a,b) => (a < b) ? -1 : 1);
-
 console.log(alpha);
 
+// Randomizing an array is as simple as so
 const rand = adjectives.sort(() => .5 - Math.random() );
 console.log(rand);
-
-console.log([-4, 6, -5, -10, 8, -8].find(x => x < 0));
