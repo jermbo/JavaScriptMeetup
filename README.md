@@ -1,0 +1,2 @@
+# JavaScript Meetup Repo
+Welcome to the Palm Beach JavaScript Meetup. This repository is the official repository for the group. We will try to keep all the talks, slides, and codes in this repository. If we are unable to, there will be a link to the original authors source. 
