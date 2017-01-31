@@ -104,3 +104,37 @@ select.addEventListener('change', (e) => {
 const navItems = document.querySelectorAll('.nav li a');
 console.log(navItems);
 console.log(Array.from(navItems, item => item.textContent))
+
+
+
+/////
+
+const adjectives = [ 'gullible', 'waggish', 'chilly', 'observant', 'actually', 'ugly', 'detailed', 'quickest', 'energetic', 'unaccountable', 'unsightly', 'debonair', 'heavenly', 'spooky', 'flat', 'woozy', 'average', 'abandoned', 'purring', 'glorious' ];
+
+// bad
+// var alpah = adjectives.sort(function(a,b){
+//   if( a < b ){
+//     return -1;
+//   }else{
+//     return 1;
+//   }
+// });
+
+// ok
+// const alpha = adjectives.sort((a,b) => {
+//   if( a < b ){
+//     return -1;
+//   }else{
+//     return 1;
+//   }
+// });
+
+// best!
+const alpha = adjectives.sort((a,b) => (a < b) ? -1 : 1);
+
+console.log(alpha);
+
+const rand = adjectives.sort(() => .5 - Math.random() );
+console.log(rand);
+
+console.log([-4, 6, -5, -10, 8, -8].find(x => x < 0));
