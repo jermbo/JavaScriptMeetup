@@ -113,6 +113,8 @@ console.log(alphabetic);
 
 Every time this loops it checks the current item with the next in line. If it is greater then the previous it stays put, else it gets moved down one. ( More information [here](http://www.w3schools.com/js/js_array_sort.asp) )
 
+#### Fat Arrows
+
 This is ok, but nothing about this is ES6. Let's start with the Fat Arrow and const variable type.
 
 ```JavaScript
@@ -127,6 +129,8 @@ console.log(alphebetic);
 const alphebetic = animaniacs.sort((a,b) => (a < b ) ? -1: 1);
 
 ```
+
+#### Implicit Return
 
 It's starting to look better. All our function is doing is returning a -1 or 1. We can shorten our function even more. 
 
@@ -158,9 +162,7 @@ The `Array.from()` method creates a new Array instance from an array-like or
 Array.from('JavaScript'); // // ["J", "a", "v", "a", "S", "c", "r", "i", "p", "t"]
 ```
 
-
-
-### Array.find
+#### Array.find
 
 Returns the first Array element for which the callback returns true. If there is no such element it will return `undefined`. 
 
@@ -169,7 +171,7 @@ console.log([4, -11, 5, -7, 4, 5, -8].find(x => x < 0));
 // -2
 ```
 
-### Array.findIndex
+#### Array.findIndex
 
 Similar to find, with the exception this will return the index where the first true item is found otherwise -1 will be returned back.
 
