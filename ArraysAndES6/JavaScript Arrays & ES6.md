@@ -61,8 +61,6 @@ animaniacs.shift();
 // ['Wakko', 'Dot', 'Dr. Otto Scratchansniff']
 ```
 
-
-
 #### Splice
 
 Splice changes the array content by adding new elements in a specific position or removing elements at a specific position and length. [More Info](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
@@ -119,15 +117,11 @@ This is ok, but nothing about this is ES6. Let's start with the Fat Arrow and co
 
 ```JavaScript
 const alphebetic = animaniacs.sort((a,b) => {
-  if( a < b ){
-    return -1;
-  }else{
-    return 1;
-  }
+  return ( a < b )?-1: 1;
 });
 console.log(alphebetic);
-const alphebetic = animaniacs.sort((a,b) => (a < b ) ? -1: 1);
 
+let alphebetic = animaniacs.sort((a,b) => (a < b ) ? -1: 1);
 ```
 
 #### Implicit Return
@@ -148,8 +142,6 @@ cost randomize = animaniacs.sort(() => .5 - Math.random() );
 // ['Dot', 'Hello Nurse', 'Dr. Otto Scratchansniff', 'Pinkey', 'Buttons', 'Wakko']
 ```
 
-
-
 ## New ES6 Methods
 
 There are a couple of new methods introduced in ES6 that can be used to your advantage.	 
@@ -159,7 +151,8 @@ There are a couple of new methods introduced in ES6 that can be used to your adv
 The `Array.from()` method creates a new Array instance from an array-like or iterable object.
 
 ```Javascript
-Array.from('JavaScript'); // // ["J", "a", "v", "a", "S", "c", "r", "i", "p", "t"]
+console.log(Array.from('JavaScript'));
+// ["J", "a", "v", "a", "S", "c", "r", "i", "p", "t"]
 ```
 
 #### Array.find
@@ -168,7 +161,7 @@ Returns the first Array element for which the callback returns true. If there is
 
 ```JavaScript
 console.log([4, -11, 5, -7, 4, 5, -8].find(x => x < 0));
-// -2
+// -11
 ```
 
 #### Array.findIndex
@@ -179,6 +172,3 @@ Similar to find, with the exception this will return the index where the first t
 console.log([4, 2, -5, -7, 4, 5, -8].findIndex(x => x < 0));
 // 2
 ```
-
-
-
