@@ -6,8 +6,8 @@ fetch(baseURL)
   .then(resp => resp.json())
   .then(data => {
     // wrong.. this give you an array inside an array.
-    //characters.push(data);
-    //console.log(characters);
+    // characters.push(data);
+    // console.log(characters);
 
     // correct! spread all the items in to the characters array
     characters.push(...data);
@@ -27,8 +27,9 @@ function matchName(nameToMatch, chars) {
 
 function displayMatches() {
   const match = matchName(this.value, characters);
+  const regex = new RegExp(this.value, 'gi');
   const html = match.map(m => {
-    const regex = new RegExp(this.value, 'gi');
+    
     const name = m.name.replace(regex, `<span class='hl'>${this.value}</span>`);
     if(m.name){
     	return `<p class='name col-xs-3'>${name}</p>`;
@@ -137,3 +138,16 @@ console.log(alpha);
 // Randomizing an array is as simple as so
 const rand = adjectives.sort(() => .5 - Math.random() );
 console.log(rand);
+
+
+
+for( i = 0; i <= 10; i++){
+  console.log(i);
+}
+console.log('outside' + i);
+
+
+for(let x = 10; x > 0; x--){
+  console.log(x);
+}
+console.log(x);
