@@ -1,0 +1,27 @@
+{
+  "name": "restful-crud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm run api && npm run browser",
+    "api": "json-server --watch db.json",
+    "browser": "browser-sync start --server 'build' --files 'build'"
+  },
+  "author": "Jeremy \"Jermbo\" Lawson",
+  "license": "MIT",
+  "dependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-jade": "^1.1.0",
+    "gulp-json-srv": "^1.0.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.1",
+    "json-server": "^0.9.6",
+    "yargs": "^7.0.2"
+  }
+}
