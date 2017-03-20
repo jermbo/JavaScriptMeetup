@@ -1,14 +1,32 @@
 {
-    "posts": [
-        {
-            "id": 1,
-            "title": "hello world",
-            "body": "awwwwww yeah!"
-        },
-        {
-            "id": 2,
-            "title": "hello world",
-            "body": "awwwwww yeah!"
-        }
-    ]
+  "dining": [
+    {
+      "id": 1,
+      "name": "Agave Restaurant & Bar",
+      "address": "2067 Summer Lee Drive, Rockwall",
+      "geolocation": {
+        "lat": "32.88965",
+        "long": "-96.481037"
+      },
+      "phone": "214.771.0423",
+      "website": "www.agaverockwall.com"
+    },
+    {
+      "name": "test",
+      "address": "test",
+      "phone": "test",
+      "website": "test",
+      "geolocation": {
+        "lat": "test",
+        "long": "test"
+      },
+      "id": 2
+    }
+  ],
+  "shopping": [],
+  "entertainment": [],
+  "services": [],
+  "schools": [],
+  "health": [],
+  "government": []
 }
