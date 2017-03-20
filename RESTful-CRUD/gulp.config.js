@@ -15,7 +15,7 @@ module.exports = () => {
                 source: `${sourcePath}/**/*.jade`,
                 build: `${deployPath}/`
             },
-            script: {
+            scripts: {
                 source: `${sourcePath}/scripts/**/*.js`,
                 build: `${deployPath}/scripts`
             },
@@ -27,12 +27,16 @@ module.exports = () => {
                 api: {
                     port: 8000
                 },
+                babel: {
+        			presets: ['es2015']
+        		},
                 browser: {
                     // proxy: config.url,
                     server: {
                         baseDir: './build',
                     },
                     port: 4000,
+                    open: "local",
                     ghostMode: {
                         clicks: true,
                         location: true,

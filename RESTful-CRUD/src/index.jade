@@ -1,7 +1,43 @@
 html
     head
-        title Pug Goodness
+        title Points of Interest
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css")
     body
-        h1 hello world
-        p yes yes yall
-        a.something(href="")
+    .container
+        .row
+            .col-12
+                h3 Points of Interest
+        .row.userinfo
+            .col-12
+                .form-group
+                    label Category
+                    select.form-control.category
+            .col-4
+                .form-group
+                    label Location Name
+                    input.form-control(type='text', placeholder='Location Name', name='name')
+            .col-4
+                .form-group
+                    label Location Address
+                    input.form-control(type='text', placeholder='Location Address', name='address')
+            .col-4
+                .form-group
+                    label Phone Number
+                    input.form-control(type='text', placeholder='Phone Number', name='phone')
+            .col-12
+                .form-group
+                    label Website
+                    input.form-control(type='text', placeholder='Website', name='website')
+            .col-6
+                .form-group
+                    label Lat
+                    input.form-control(type='text', placeholder='Lat', name='geolocation.lat')
+            .col-6
+                .form-group
+                    label Long
+                    input.form-control(type='text', placeholder='Long', name='geolocation.long')
+            .col-12
+                button#submit.btn.btn-block.btn-primary Submit Data
+                
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js')
+    script(src='scripts/all.js')
