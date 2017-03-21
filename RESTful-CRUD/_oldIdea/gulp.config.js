@@ -23,13 +23,13 @@ module.exports = () => {
                 source: `${sourcePath}/images/**/*.*`,
                 build: `${deployPath}/images`
             },
-            options:{
+            options: {
                 api: {
                     port: 8000
                 },
                 babel: {
-        			presets: ['es2015']
-        		},
+                    presets: ['es2015']
+                },
                 browser: {
                     // proxy: config.url,
                     server: {
