@@ -1,9 +1,11 @@
 const gulp = require('gulp'),
-    yargs = require('yargs').argv;
+    yargs = require('yargs').argv,
     browserSync = require('browser-sync').create(),
     config = require('./gulp.config')(),
-    $ = require('gulp-load-plugins')({lazy: true})
-    server = $.jsonSrv.create(config.options.api);
+    $ = require('gulp-load-plugins')({
+        lazy: true
+    })
+server = $.jsonSrv.create(config.options.api);
 
 gulp.task('default', ['job:start-watch']);
 
@@ -49,7 +51,7 @@ gulp.task('task:page-reload', () => {
 ///////////////////////////
 function errorHandler() {
     return $.plumber({
-        errorHandler: function (err) {
+        errorHandler: function(err) {
             $.notify.onError({
                 title: `Error : ${err.plugin}`,
                 message: `Issue : ${err}`,

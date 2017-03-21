@@ -1,32 +1,55 @@
 {
-  "dining": [
-    {
-      "id": 1,
-      "name": "Agave Restaurant & Bar",
-      "address": "2067 Summer Lee Drive, Rockwall",
-      "geolocation": {
-        "lat": "32.88965",
-        "long": "-96.481037"
+  "info": {
+    "synopsis": "Philip J. Fry is a 25 year old delivery boy living in New York City who is cryogenically frozen on New Year's 1999 for 1000 years, where he wakes up in New New York City on December 31, 2999. There, he meets Turanga Leela, a tough but loving, beautiful one-eyed alien; and Bender, an alcohol-powered bending robot who is addicted to liquor, cigars, stealing, amongst other things. Eventually, they all meet up with Fry's Great, Great, Great, etc... Nephew, Hubert J. Farnsworth. Farnsworth is a very old man who is a genius but is very senile and forgetful. Fry, Leela, and Bender wind up working for Farnsworth's Planet Express Delivery Service. They then meet their co-workers; Amy Wong, who is a Martian intern who comes from a rich family, but is still a human who is very hip. Also, there is Hermes Conrad, who manages the delivery service and is pretty strict. Hermes seems Jamaican in voice and look. And finally, there's Dr. John Zoidberg, a lobster-like alien who is the crew's doctor. Unfortunately, he knows nothing about humans. Fry, Leela, Bender, and sometimes Amy and Dr. Zoidberg travel around the universe risking life and limb delivering packages and performing charitable tasks for tax deductions.",
+    "yearsAired": "1999–2013",
+    "creators": [
+      {
+        "name": "David X. Cohen",
+        "url-": "http://www.imdb.com/name/nm0169326"
       },
-      "phone": "214.771.0423",
-      "website": "www.agaverockwall.com"
+      {
+        "name": "Matt Groening",
+        "url": "http://www.imdb.com/name/nm0004981"
+      }
+    ]
+  },
+  "characters": [
+    {
+      "name": {
+        "first": "Philip",
+        "middle": "Jay",
+        "last": "Fry"
+      },
+      "info": {
+        "gender": "Male",
+        "age": "25",
+        "species": "Human",
+        "homePlanet": "Earth",
+        "occupation": "Intergalactic Delivery Boy"
+      },
+      "sayings": [
+        "Shut up and take my money!",
+        "I'm walking on sunshine, woah oh oooh",
+        "This is how we do it. Pick your nose and chew it",
+        "wow! I never would have thought of that."
+      ],
+      "id": 1
     },
     {
-      "name": "test",
-      "address": "test",
-      "phone": "test",
-      "website": "test",
-      "geolocation": {
-        "lat": "test",
-        "long": "test"
+      "name": {
+        "first": "Turanga",
+        "middle": "SOMETHING",
+        "last": "Leela"
       },
+      "info": {
+        "gender": "MUTANT FEMALE",
+        "occupation": "Pilot of the Planet Express"
+      },
+      "sayings": [
+        "You gotta do what you gotta do.",
+        "I don't have good depth perception!"
+      ],
       "id": 2
     }
-  ],
-  "shopping": [],
-  "entertainment": [],
-  "services": [],
-  "schools": [],
-  "health": [],
-  "government": []
+  ]
 }
