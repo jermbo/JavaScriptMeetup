@@ -38,12 +38,15 @@
     {
       "name": {
         "first": "Turanga",
-        "middle": "SOMETHING",
+        "middle": "",
         "last": "Leela"
       },
       "info": {
-        "gender": "MUTANT FEMALE",
-        "occupation": "Pilot of the Planet Express"
+        "gender": "Female",
+        "age": "32",
+        "species": "Mutant",
+        "homePlanet": "Earth",
+        "occupation": "Captian of the Planet Express"
       },
       "sayings": [
         "You gotta do what you gotta do.",

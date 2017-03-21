@@ -50,4 +50,35 @@ This should go without saying now-a-days, but if you do not have Node installed,
 ### Postman
 Another really useful tool when working with API's in general. It is a Chrome extension and a stand a lone app. (GetPostMan)[https://www.getpostman.com/] Go ahead and down load it. You will thank me later!
 
-## The Set up
+## The Setup
+We are going to recreate my project database and walk thought where I started, what I did to get a little easier, then where I have ended up. So, the best place to start is at the beginning. ( For those who just want the end results, start off in 01-the-beginning folder. )
+
+### The Beginning
+When I was first playing around with this, all I was a simple JSON file that I ajax'd in and started to manipulate. That go tedious real quick. This is when I found the JSON Server.
+
+I started by creating a directory and initialized a Node project.
+
+`npm init`
+
+I followed the prompts, filling out the information as I saw fit. Once that was done I started installing packages. I installed JSON Server both globally and locally:
+
+```JavaScript
+npm i -g json-server
+npm i -S json-server
+```
+
+While that was installing I created a json file that will eventually store my data.
+
+```JSON
+{
+  "info": {},
+  "characters" : [],
+  "episodes": []
+}
+```
+
+When that was completed, I ran the command to start the server and listen for file changes.
+
+`json-server --watch db.json --port 8000`
+
+Then I made my way to the browser and went to `http://localhost:8000`. If everything started properly you should see a welcome screen with links to your db.
