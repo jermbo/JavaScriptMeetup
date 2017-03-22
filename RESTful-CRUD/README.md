@@ -54,7 +54,7 @@ Another really useful tool when working with API's in general. It is a Chrome ex
 We are going to recreate my project database and walk thought where I started, what I did to get a little easier, then where I have ended up. So, the best place to start is at the beginning. ( For those who just want the end results, start off in 01-the-beginning folder. )
 
 ### The Beginning
-When I was first playing around with this, all I was a simple JSON file that I ajax'd in and started to manipulate. That go tedious real quick. This is when I found the JSON Server.
+When I was first playing around with this, it was a simple JSON file that I hand created and then I ajax'd in and started to manipulate. That go tedious real quick. This is when I found the JSON Server.
 
 I started by creating a directory and initialized a Node project.
 
@@ -67,7 +67,7 @@ npm i -g json-server
 npm i -S json-server
 ```
 
-While that was installing I created a json file that will eventually store my data.
+While that was installing I created a JSON file that will eventually store my data.
 
 ```JSON
 {
