@@ -17,7 +17,7 @@ Feel free to change the db.json to what ever your project needs. Be aware this i
             "desc": "item description"
         },
         {
-            "title": "list item 1",
+            "title": "list item 2",
             "desc": "item description"
         }
     ]
@@ -36,7 +36,7 @@ Feel free to change the db.json to what ever your project needs. Be aware this i
             "desc": "item description"
         },
         {
-            "title": "list item 1",
+            "title": "list item 2",
             "desc": "item description",
         },
     ]
