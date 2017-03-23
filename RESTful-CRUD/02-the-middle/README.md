@@ -7,4 +7,4 @@ There is a gulp task starting a local server and running the code. That also sta
 
 All of this is written in vanilla JavaScript and it's using ES6 and later API's. Be sure to run this in evergreen browsers. Latest Chrome or FireFox should work just fine.
 
-*The Fetch API does not work in or < IE 11 or < Safari 10 so avoid those for the example. (CanIUse)[http://caniuse.com/#search=fetch]*
+*The Fetch API does not work in or IE 11- or Safari 10- so avoid those for the example. (CanIUse)[http://caniuse.com/#search=fetch]*

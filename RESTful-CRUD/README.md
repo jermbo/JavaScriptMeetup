@@ -48,26 +48,26 @@ This should go without saying now-a-days, but if you do not have Node installed,
 "Get a full fake ReST API with zero coding in less than 30 seconds (seriously)" - (JSON Server GitHub)[https://github.com/typicode/json-server]. This lovely tool is what gives you all the ReSTful CRUDiness you expect from an API. We will break this down soon.
 
 ### Postman
-Another really useful tool when working with API's in general. It is a Chrome extension and a stand a lone app. (GetPostMan)[https://www.getpostman.com/] Go ahead and down load it. You will thank me later!
+Another really useful tool when working with API's in general. It is a Chrome extension and a stand a lone app. (GetPostman)[https://www.getpostman.com/] Go ahead and down load it. You will thank me later!
 
 ## The Setup
 We are going to recreate my project database and walk thought where I started, what I did to get a little easier, then where I have ended up. So, the best place to start is at the beginning. ( For those who just want the end results, start off in 01-the-beginning folder. )
 
 ### The Beginning
-When I was first playing around with this, it was a simple JSON file that I hand created and then I ajax'd in and started to manipulate. That go tedious real quick. This is when I found the JSON Server.
+When I was first playing around with this, it was a simple JSON file that was hand crafted and then ajax'd in to display to the users. Adding new data to the JSON file got tedious, real quick. After a few days and getting fed up of making stupid JSON syntax errors, I started looking for a better solution. This is when I found out about JSON Server. The whole game changed from this point on!
 
-I started by creating a directory and initialized a Node project.
+The first thing that needed to be done was officially start this as a project rather than some random grouping of files. So, like any Node project, I started off by initializing the project.
 
 `npm init`
 
-I followed the prompts, filling out the information as I saw fit. Once that was done I started installing packages. I installed JSON Server both globally and locally:
+Followed the prompts, filling out the information as I saw fit. Once that was done I started installing packages. JSON Server was installed both globally and locally like so:
 
 ```JavaScript
 npm i -g json-server
 npm i -S json-server
 ```
 
-While that was installing I created a JSON file that will eventually store my data.
+While that was installing I started a JSON document that housed my desired groupings of data.
 
 ```JSON
 {
@@ -76,9 +76,30 @@ While that was installing I created a JSON file that will eventually store my da
   "episodes": []
 }
 ```
-
-When that was completed, I ran the command to start the server and listen for file changes.
+When JSON Server was done loading, both locally and globally, I ran the command to start the server and listen for file changes.
 
 `json-server --watch db.json --port 8000`
 
-Then I made my way to the browser and went to `http://localhost:8000`. If everything started properly you should see a welcome screen with links to your db.
+Then navigated to `http://localhost:8000`. Everything started properly and saw a welcome screen with links to the nodes in the database.
+
+Now that everything is up and running, the data importing can begin. Trying to figure out what information was required, what it looked like, what was grouped together, and what made the most sense. I eventually settled on a schema that looked like:
+
+```JavaScript
+{
+    "name": {
+        "first": "",
+        "middle": "",
+        "last": ""
+    },
+    "age": "",
+    "gender": "",
+    "species": "",
+    "homePlanet": "",
+    "occupation": "",
+    "sayings": []
+}
+```
+
+Now that everything is squared away, it was time to get information an populate the database. After using post man for a handful of entries, I got tired of doing this. This was not much better. So I decided, I knew what I wanted to do and moved on to the next phase.
+
+## The Middle
