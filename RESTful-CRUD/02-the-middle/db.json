@@ -1,0 +1,22 @@
+{
+  "characters": [
+    {
+      "name": {
+        "first": "Philip",
+        "middle": "Jay",
+        "last": "Fry"
+      },
+      "info": {
+        "age": "25",
+        "gender": "Male",
+        "species": "Human"
+      },
+      "occupation": "Delivery Boy",
+      "sayings": [
+        "Shut up and take my money",
+        "I'm walking on sunshine! Wooooah oh woah!!"
+      ],
+      "id": 1
+    }
+  ]
+}
