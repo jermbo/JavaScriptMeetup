@@ -103,3 +103,61 @@ Now that everything is up and running, the data importing can begin. Trying to f
 Now that everything is squared away, it was time to get information an populate the database. After using post man for a handful of entries, I got tired of doing this. This was not much better. So I decided, I knew what I wanted to do and moved on to the next phase.
 
 ## The Middle
+In a pinch, the hand editing of the JSON files is acceptable. It's not fun, but it can get the job done. But for my project, I needed to gather a lot of information and I wasn't sure where it was going to come from. So, this was going to take a while. This is when I decided to create a couple of forms to capture the information I desired and let that do the heavy lifting.
+
+The first iteration was terrible. I was doing things the very old fashion way by setting each input field up with an id, checking if there was a value, adding to object, all of this one at a time. I thought there had to be a better way, this was just as tedious to set up. Although this did save time in the long run, it did not give me the ability to make several forms fast.
+
+The way to get around this issue is really utilize the `name` attribute and the array features of JavaScript. My markup looked a little something like this :
+
+```HTML
+<input type="text" name="name.first" />
+<input type="text" name="name.middle" />
+<input type="text" name="name.last" />
+<button id="submit">Submit Form</button>
+```
+
+With all the information I wanted grouped together, I used the dot notation to separate that. This is a great way to have your code be self documenting. We know that objects are accessed via the dot notation, and this tells us that there will be an object called `name` with three children `first | middle | last`. Knowing that structure we can now figure out how to get the value out of each one of them and build the object necessary to add to the database. The JavaScript looks like this :
+
+```JavaScript
+const inputs = document.querySelectorAll('inputs[type="text"]');
+const submit = document.querySelector('#submit');
+const obj = {};
+
+submit.addEventListener('click', (e) => {
+    e.preventDefault();
+    inputs.forEach(input => {
+        const keys = input.value.split('.');
+        if( keys.length == 1){
+            obj[keys[0]] = input.value.trim();
+        }else{
+            if(!obj.hasOwnProperty(keys[0])){
+                obj[keys[0]] = {};
+            }
+            obj[keys[0]][keys[1]] = input.value.trim();
+        }
+    });
+});
+```
+
+There is a lot going on here, let's break it down line by line.
+
+First, we are caching the inputs, submit button, and an object. When the user clicks the button, loop through each input field and place them in the `obj` created.
+
+How it is determined where they go is but the name. You `split('.')` on the dot, and this returns you an array of string(s). If there is one dot in the `name` property then you will have an array of 2. If no dots, you will have an array of 1. Knowing that, we can check it see if there is more than one. If it has only one value, then we can just add it to the object like `obj[keys[0]] = input.value.trim();`.
+
+If we have 2 items in the array, we essentially need to do the same thing, but make sure if the key exists or not. So `if(!obj.hasOwnProperty(keys[0]))` checks to see if the first item in the array is present as a key on the object. If it is not, add it, then add the child value. If the key does exist, skip creating it, and add the child to it.  
+
+```JavaScript
+if(!obj.hasOwnProperty(keys[0])){
+    obj[keys[0]] = {};
+}
+obj[keys[0]][keys[1]] = input.value.trim();
+```
+
+This is what makes it powerful. I can create as many fields as is needed, give it a good naming structure, and populate the database with it. Check out 02-the-middle for the example of the character import script.
+
+This was done for each piece of information that the database required. There is a form for each database collection and it all uses the same script. This is cool and all, but why not VueJS it up?
+
+## The End
+
+Being that I needed a good project to build in VueJS, I figured this would be a good opportunity to do so. The bad news is, this has not been completed. I have a version on the Futurama Database github, but it's practically the same as the previous example, just more Vue-ish. Looks like there will need to be another talk and push to this repo for an update. 

@@ -1,0 +1,14 @@
+{
+    "name": "restful-crud",
+    "version": "1.0.0",
+    "description": "This is an example for a form to add to the JSON Server in a quick and expansive way.",
+    "main": "index.js",
+    "scripts": {
+        "start": "json-server --watch db.json --port 8000"
+    },
+    "author": "Jeremy \"Jermbo\" Lawson",
+    "license": "MIT",
+    "dependencies": {
+        "json-server": "^0.9.6"
+    }
+}
