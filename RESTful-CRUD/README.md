@@ -1,17 +1,16 @@
 # Build a ReSTful CRUD API in seconds
-// TODO
 
 ## Definitions
 Before we get to far into the weeds, I want to take a minute to make sure we are all on the same page with some terminology and what the problem is.
-
-### API
-Application Program Interface. It's a way for two computers to communicate with each other. Client software calls a Server API and gets back structured data.
 
 ### ReST
 Representational State Transfer. It's an architecture style for designing networked applications. It relies on stateless, client-server interaction, typically via HTTP.
 
 ### CRUD
 Create Read Update Delete. These are your basic database functions. The HTTP Method equivalents are POST = Create; GET = Read; PUT ( or ) PATCH = Update; DELETE = Delete.
+
+### API
+Application Program Interface. It's a way for two computers to communicate with each other. Client software calls a Server API and gets back structured data.
 
 ## The problem
 I have two reasons for wanting to create my own API.
@@ -22,21 +21,21 @@ This started off ok. I set up a node server, started building out the CRUD, and 
 
 My second problem was trying to find an API that had all the data related to my favorite TV show. Futurama. I am a huge fan and trying to find various pieces of information I had to go to several different locations to gather said knowledge.
 
-This I figured would be a fun way to learn API for my students and fulfill a particular nerd itch I have been wanting to scratch for a while. Two birds one stone.
+I figured this would be a fun way to learn API for my students and fulfill a particular nerd itch I have been wanting to scratch for a while. Two birds one stone.
 
 ## The solution
-The solution is Mock API's. Pick a language and you will find a solution for creating a Mock API. The one we will focus on is called (JSON Server)[https://github.com/typicode/json-server]. It's a Node package that can run locally or be pushed up to a server. This has all the functionality on would expect a ReST API should have.
+The solution is a Mock API. Pick a language and you will find a solution for creating a Mock API. The one we will focus on is called (JSON Server)[https://github.com/typicode/json-server]. It's a Node package that can run locally or be pushed up to a server. This has all the functionality one would expect a ReST API to have.
 
 ## But why Mock API's?
-The reasons vary from project to project, but the overall reasons are pretty solid.
+The reasons vary from project to project, though there are some cases that will fit most projects.
 
 First, the ability to develop rapidly is golden. Typically, in early stages of a project, the data requirements are fuzzy and change over time. It's much more cost effective to not be 100% locked into a schema right away. You can start building and design the data as you need it.
 
 The ability to work offline is great to. When working with a Mock API all your calls are local. So you don't need to worry about if your internet is unreliable, down, or non-existent. You can still work and make progress.
 
-Inter-team dependencies are reduced in the early stages of development. This not only saves money but offers the flexibility. The money savings is obvious, you don't need the backend team creating something that may or may not be used. And the flexibility comes with the ability to change due to the client requirements or better understanding of the data needs and how it interacts with your application.
+Inter-team dependencies are reduced in the early stages of development. This not only saves money but offers the most flexibility. The money savings is obvious, you don't need the back end team creating something that may or may not be used. And the flexibility comes with the ability to change due to the client requirements or better understanding of the data needs and how it interacts with your application.
 
-The list can go on, but I feel I have made my point.
+The list can go on, but I feel these points are the most generic to every case.
 
 ## The tools
 To get this up and running you need a small set of tools, 3 to be exact.
@@ -51,10 +50,10 @@ This should go without saying now-a-days, but if you do not have Node installed,
 Another really useful tool when working with API's in general. It is a Chrome extension and a stand a lone app. (GetPostman)[https://www.getpostman.com/] Go ahead and down load it. You will thank me later!
 
 ## The Setup
-We are going to recreate my project database and walk thought where I started, what I did to get a little easier, then where I have ended up. So, the best place to start is at the beginning. ( For those who just want the end results, start off in 01-the-beginning folder. )
+We are going to recreate my (Futurama)[https://github.com/jermbo/FuturamaDatabase] database and walk thought where I started, what I did to make it a little easier, then where I have ended up. So, the best place to start is at the beginning. ( For those who just want the end results, start off in (01-the-beginning)[https://github.com/jermbo/JavaScriptMeetup/tree/master/RESTful-CRUD/01-the-beginning] folder. )
 
 ### The Beginning
-When I was first playing around with this, it was a simple JSON file that was hand crafted and then ajax'd in to display to the users. Adding new data to the JSON file got tedious, real quick. After a few days and getting fed up of making stupid JSON syntax errors, I started looking for a better solution. This is when I found out about JSON Server. The whole game changed from this point on!
+When I was first playing around with this, it was a simple JSON file that was hand crafted and then ajax'd in to display to the users. Adding new data to the JSON file got tedious, real quick. After a few days of copying and pasting, making stupid JSON syntax errors, and making other various spelling mistakes, I got really frustrated. So, I started looking for a better solution. This is when I found out about JSON Server. The whole game changed from this point on!
 
 The first thing that needed to be done was officially start this as a project rather than some random grouping of files. So, like any Node project, I started off by initializing the project.
 
@@ -87,20 +86,22 @@ Now that everything is up and running, the data importing can begin. Trying to f
 ```JavaScript
 {
     "name": {
-        "first": "",
-        "middle": "",
-        "last": ""
+      "first": "",
+      "middle": "",
+      "last": ""
     },
-    "age": "",
-    "gender": "",
-    "species": "",
-    "homePlanet": "",
+    "info": {
+      "age": "",
+      "gender": "",
+      "species": "",
+      "homePlanet": ""
+    },
     "occupation": "",
-    "sayings": []
+    "sayings": [],
 }
 ```
 
-Now that everything is squared away, it was time to get information an populate the database. After using post man for a handful of entries, I got tired of doing this. This was not much better. So I decided, I knew what I wanted to do and moved on to the next phase.
+Now that everything is squared away, it was time to get information an populate the database. After using Postman for a handful of entries, I got tired of doing this. This was not much better then hand editing the JSON file. So I decided, I knew what I wanted to do and moved on to the next phase.
 
 ## The Middle
 In a pinch, the hand editing of the JSON files is acceptable. It's not fun, but it can get the job done. But for my project, I needed to gather a lot of information and I wasn't sure where it was going to come from. So, this was going to take a while. This is when I decided to create a couple of forms to capture the information I desired and let that do the heavy lifting.
@@ -160,4 +161,4 @@ This was done for each piece of information that the database required. There is
 
 ## The End
 
-Being that I needed a good project to build in VueJS, I figured this would be a good opportunity to do so. The bad news is, this has not been completed. I have a version on the Futurama Database github, but it's practically the same as the previous example, just more Vue-ish. Looks like there will need to be another talk and push to this repo for an update. 
+Being that I needed a good project to build in VueJS, I figured this would be a good opportunity to do so. The bad news is, this has not been completed. I have a version on the Futurama Database github, but it's practically the same as the previous example, just more Vue-ish. Looks like there will need to be another talk and push to this repo for an update.
