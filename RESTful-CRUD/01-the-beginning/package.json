@@ -4,7 +4,7 @@
     "description": "This is the starter pack for those who want something up and running quickly.",
     "main": "index.js",
     "scripts": {
-        "start": "json-server --watch db.json --port 8000"
+	    "start": "node node_modules/json-server/bin/index.js --watch db.json"
     },
     "author": "Jeremy \"Jermbo\" Lawson",
     "license": "MIT",
