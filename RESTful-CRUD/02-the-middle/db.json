@@ -9,7 +9,8 @@
       "info": {
         "age": "25",
         "gender": "Male",
-        "species": "Human"
+        "species": "Human",
+        "homePlanet": "Earth"
       },
       "occupation": "Delivery Boy",
       "sayings": [
