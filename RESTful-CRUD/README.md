@@ -127,7 +127,7 @@ const obj = {};
 submit.addEventListener('click', (e) => {
     e.preventDefault();
     inputs.forEach(input => {
-        const keys = input.value.split('.');
+        const keys = input.name.split('.');
         if( keys.length == 1){
             obj[keys[0]] = input.value.trim();
         }else{
