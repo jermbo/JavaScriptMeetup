@@ -1,9 +1,75 @@
-<!doctype>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Palm Beach JS</title
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <title>Palm Beach JS</title>
+    <style>
+    #Transparent {
+      background: rgba(0, 0, 0, 0.7);
+      color:white; 
+      margin: 0 auto;
+      padding:10px;
+    }
+    a, a:visited { color:white;}
+    </style>
+     
 </head>
-<body>
-  <h1>Welcome to Palm Beach JS</h1>
+<body background="https://secure.meetupstatic.com/photos/theme_body/c/5/8/4/full_7070564.jpeg">
+     <!-- Header -->
+     <header>
+      <div class="container">
+          <div class="intro-text">
+              <div id="logo"><img class="logo" alt="Palm Beach JS" src="https://secure.meetupstatic.com/photos/event/a/1/b/8/global_451901400.jpeg"></div>
+              <div id="Transparent"  style="">
+                      <h1>Palm Beach Javascript</h1>
+                      <div class="intro-heading">
+                          <span  id="eventDate">Come Join Us!</span>
+                      </div>
+                      <div class="intro-lead-in" id="eventTitle">South Florida's Largest Developer Meetup</div>
+                      <div id="eventDescription">LOCATION: 313 Datura Street #100, West Palm Beach, FL</div>
+                      <a href="https://meetup.com/Palm-Beach-Javascript" id="eventUrl" class="page-scroll btn btn-xl">Come Join Us</a>
+                  </div>
+          </div>
+      </div>
+  </header>
+
+<content>
+
+</content>
+    <script>
+
+
+                fetch('https://bocajswall.azurewebsites.net/nextEvent?group=palm-beach-javascript')
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    console.log(data);
+                    var title = data.title;
+                    var date = data.date;
+                    var desc = data.description;
+                    var location = data.location;
+                    var url = data.url;
+                    var eventDate = new Date(date);
+                    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+                    var eventDateText = eventDate.toLocaleDateString('en-US', options)
+                    console.log(""+eventDateText);
+
+                    document.getElementById("eventTitle").innerHTML = title;
+
+                    document.getElementById("eventDate").innerHTML = ""+eventDateText;
+
+                    document.getElementById("eventDescription").innerHTML = "Location: <BR>"+location;
+
+                    document.getElementById("eventUrl").setAttribute("href",url);
+   
+                });
+
+    </script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>
 </html>
