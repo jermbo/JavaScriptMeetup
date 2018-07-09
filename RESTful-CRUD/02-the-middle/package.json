@@ -4,7 +4,7 @@
     "description": "This is an example for a form to add to the JSON Server in a quick and expansive way.",
     "main": "index.js",
     "scripts": {
-        "start": "json-server --watch db.json --port 8000"
+	    "start": "node node_modules/json-server/bin/index.js --watch db.json"
     },
     "author": "Jeremy \"Jermbo\" Lawson",
     "license": "MIT",
