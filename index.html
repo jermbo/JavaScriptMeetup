@@ -7,19 +7,47 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <title>Palm Beach JS</title>
     <style>
+
+    body {
+      background-size: cover;
+      height: 100vh;
+    }
+
     #Transparent {
       background: rgba(0, 0, 0, 0.7);
       color:white; 
-      margin: 0 auto;
+      margin: 20px auto;
       padding:10px;
     }
     a, a:visited { color:white;}
+
+    #eventUrl {
+        margin-top:10px;
+        color: white;
+        background-color: #f7df1e;
+        border-color: #f7df1e;
+        font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        text-transform: uppercase;
+        color: black;
+        font-weight: 700;
+        border-radius: 3px;
+        font-size: 18px;
+        padding: 20px 40px;
+      }
+      
+      #buttonClick {
+          margin:30px;
+
+      }
     </style>
-     
+    
+
+
 </head>
 <body background="https://secure.meetupstatic.com/photos/theme_body/c/5/8/4/full_7070564.jpeg">
      <!-- Header -->
-     <header>
+
+     <content>
       <div class="container">
           <div class="intro-text">
               <div id="logo"><img class="logo" alt="Palm Beach JS" src="https://secure.meetupstatic.com/photos/event/a/1/b/8/global_451901400.jpeg"></div>
@@ -30,24 +58,27 @@
                       </div>
                       <div class="intro-lead-in" id="eventTitle">South Florida's Largest Developer Meetup</div>
                       <div id="eventDescription">LOCATION: 313 Datura Street #100, West Palm Beach, FL</div>
-                      <a href="https://meetup.com/Palm-Beach-Javascript" id="eventUrl" class="page-scroll btn btn-xl">Come Join Us</a>
+                      <div id="buttonClick">
+                        <a href="https://meetup.com/Palm-Beach-Javascript" id="eventUrl">Come Join Us</a>
+                      </div>
                   </div>
           </div>
       </div>
-  </header>
 
-<content>
+    </content>
 
-</content>
     <script>
+                  document.getElementById("eventUrl").addEventListener("click",()=> {
+                        window.open('https://meetup.com/Palm-Beach-Javascript');
+                    })
+                 
 
-
-                fetch('https://bocajswall.azurewebsites.net/nextEvent?group=palm-beach-javascript')
+                fetch('https://wall.bocajs.org/nextEvent?group=palm-beach-javascript')
                 .then(function(response) {
                     return response.json();
                 })
                 .then(function(data) {
-                    console.log(data);
+                    //console.log(data);
                     var title = data.title;
                     var date = data.date;
                     var desc = data.description;
@@ -57,19 +88,20 @@
                     var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
                     var eventDateText = eventDate.toLocaleDateString('en-US', options)
-                    console.log(""+eventDateText);
+                    //console.log(""+eventDateText);
 
                     document.getElementById("eventTitle").innerHTML = title;
 
                     document.getElementById("eventDate").innerHTML = ""+eventDateText;
 
-                    document.getElementById("eventDescription").innerHTML = "Location: <BR>"+location;
-
+                    document.getElementById("eventDescription").innerHTML = "Location: "+location;
+                    
                     document.getElementById("eventUrl").setAttribute("href",url);
+
+                    console.log("Website updated.")
    
                 });
 
     </script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>
 </html>
